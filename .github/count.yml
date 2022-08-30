@@ -1,47 +1,40 @@
-name: Django CI
+# This is a basic workflow to help you get started with Actions
 
+name: Simple Go To Prod 1
+
+# Controls when the workflow will run
 on:
+  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main, dev, GFO, JAI, AKI, AYC ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, dev, GFO, JAI, AKI, AYC ]
+    branches: [ main ]
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  # This workflow contains a single job called "build"
   build:
-
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 4
-      matrix:
-        python-version: [3.10.4]
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
-      with:
-        python-version: ${{ matrix.python-version }}
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-    - name: Create and start virtual environment
-      run: |
-        python3 -m venv venv
-        source venv/bin/activate
-    - name: Install dependencies
-      run: pip install -r requirements.txt
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
 
-    # - name: Run tests
-    #   run: python mysite/manage.py test polls
-    
-    - name: Upload artifact for deployment jobs
-      uses: actions/upload-artifact@v2
-      with:
-        name: python-app
-        path: |
-          . 
-          !venv/
-          
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
-        wc -l ./cloudixio/cloudixio/*.py ./cloudixio/AUTOPILOT_APP/*.py ./cloudixio/AUTOPILOT_APP/templates/AUTOPILOT_APP/detail/*.html ./cloudixio/AUTOPILOT_APP/templates/AUTOPILOT_APP/edit/*.html ./cloudixio/AUTOPILOT_APP/templates/AUTOPILOT_APP/create/*.html ./cloudixio/AUTOPILOT_APP/templates/AUTOPILOT_APP/list/*.html ./cloudixio/AUTOPILOT_APP/templates/AUTOPILOT_APP/*.html   
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+          wc -l ./*.html
+          wc -l ./*.css
+          wc -l ./README.md         
+      - name: SCP Files
