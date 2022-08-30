@@ -38,3 +38,7 @@ jobs:
           wc -l ./*.css
           wc -l ./README.md         
       - name: SCP Files
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0db9fbdb4f7a092bb240038389fbbb2ef48707da
