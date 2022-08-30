@@ -35,10 +35,6 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           wc -l ./*.html
-          wc -l ./*.css
-          wc -l ./README.md         
+          wc -l ./*.css        
       - name: SCP Files
-<<<<<<< HEAD
-=======
 
->>>>>>> 0db9fbdb4f7a092bb240038389fbbb2ef48707da
