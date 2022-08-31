@@ -1,0 +1,27 @@
+.square {
+    background-color: #874e3c;
+    width: 70px;
+    height: 70px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /*Center notre maquette*/
+    margin-top: 1rem;  /*ajouter un petit espace en haut de la div*/
+}
+
+.main {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /*Creation case 8 par 8*/
+    height: 560px; 
+    width: 560px;
+}
+
+.case:nth-of-type(odd) .square:nth-of-type(even){
+    background-color: #000000; /*Couleur des cases 1 sur 2*/
+}
+
+.case:nth-of-type(even) .square:nth-of-type(odd){
+    background-color: #000000; /*Couleur des cases 1 sur 2*/
+}
