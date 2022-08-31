@@ -25,3 +25,7 @@
 .case:nth-of-type(even) .square:nth-of-type(odd){
     background-color: #000000; /*Couleur des cases 1 sur 2*/
 }
+
+img {
+    width: 100%;
+}
