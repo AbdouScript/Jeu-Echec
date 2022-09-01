@@ -36,3 +36,4 @@ jobs:
           echo test, and deploy your project.
           wc -l ./*.html
           wc -l ./*.css  
+          wc -l ./*.js  
